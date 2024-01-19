@@ -1,0 +1,4 @@
+use("peloski_store");
+
+db.products.find();
+db.orders.find({ _id: ObjectId("659719b5448ec975b69f02e4") });

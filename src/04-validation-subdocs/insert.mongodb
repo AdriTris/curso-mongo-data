@@ -1,0 +1,10 @@
+use("peloski_store");
+
+db.products.insertOne({
+  name: "Camiseta",
+  sizes: ["L", "M", "S"],
+  category: {
+    name: "Hombres",
+    image: "img",
+  },
+});

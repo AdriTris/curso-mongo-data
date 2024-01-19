@@ -1,0 +1,12 @@
+use("peloski_store");
+
+db.products.updateOne(
+  {
+    _id: ObjectId("659606a30fa5a3b5cf74eaa3"),
+  },
+  {
+    $set: {
+      store_ids: [ObjectId("659608f114997b35a8ca78e6")],
+    },
+  }
+);

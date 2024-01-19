@@ -1,0 +1,10 @@
+use("peloski_store");
+
+db.users.insertOne({
+  last_name: "estrella",
+  email: "adritris@gmail.com",
+  password: "123456",
+  role: "admin",
+  age: 25,
+  isSingle: false,
+});

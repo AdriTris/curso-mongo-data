@@ -1,0 +1,19 @@
+use("peloski_store");
+
+// relacion 1-n referenciada
+db.orders.insertOne({
+  user_id: ObjectId("6595f561520465d51ea68e60"),
+  date: "2024-01-02",
+  items: [
+    {
+      name: "Zapatos",
+      price: 20,
+      qty: 1,
+    },
+    {
+      name: "Jenga",
+      price: 15,
+      qty: 1,
+    },
+  ],
+});

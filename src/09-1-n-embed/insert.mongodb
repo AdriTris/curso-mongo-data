@@ -1,0 +1,14 @@
+use("peloski_store");
+
+// relacion 1-n embebida se debe usar cuando no sabemos que el array no crecerá demasiado, deben ser pocos documentos
+db.orders.insertOne({
+  user_id: ObjectId("6595f4fe5e58e27158c15ec7"),
+  date: "2024-01-01",
+  items: [
+    {
+      name: "Juguete",
+      price: 5,
+      qty: 3,
+    },
+  ],
+});

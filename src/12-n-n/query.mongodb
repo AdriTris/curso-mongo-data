@@ -1,0 +1,17 @@
+use("peloski_store");
+
+db.products.find();
+db.stores.find();
+//659606a30fa5a3b5cf74eaa3  product
+//659608f114997b35a8ca78e6  store
+
+db.products.aggregate([
+  {
+    $lookup: {
+      from: "stores",
+      localField: "store_ids", //si sabe que products_ids es un vector lo puede mapear
+      foreignField: "_id",
+      as: "stores",
+    },
+  },
+]);

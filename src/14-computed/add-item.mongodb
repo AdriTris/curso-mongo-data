@@ -1,0 +1,20 @@
+use("peloski_store");
+
+db.orders.updateOne(
+  { _id: ObjectId("659719b5448ec975b69f02e4") },
+  {
+    $push: {
+      items: {
+        name: "Product 2",
+        price: 18,
+        qty: 2,
+        product_id: ObjectId("659606a30fa5a3b5cf74eaa4"),
+      },
+    },
+    $inc: {
+      total: 18 * 2,
+    },
+  }
+);
+
+//659719b5448ec975b69f02e4

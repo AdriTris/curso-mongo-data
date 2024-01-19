@@ -1,0 +1,15 @@
+use("peloski_store");
+
+// relacion n-n
+db.stores.insertMany([
+  {
+    name: "Store 1",
+    city: "rbba",
+    products_ids: [ObjectId("659606a30fa5a3b5cf74eaa3"), ObjectId("659606a30fa5a3b5cf74eaa5")],
+  },
+  {
+    name: "Store 2",
+    city: "uio",
+    products_ids: [ObjectId("659606a30fa5a3b5cf74eaa3"), ObjectId("659606a30fa5a3b5cf74eaa4"), ObjectId("659606a30fa5a3b5cf74eaa5")],
+  },
+]);

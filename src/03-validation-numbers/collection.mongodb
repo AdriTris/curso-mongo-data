@@ -1,0 +1,35 @@
+use("peloski_store");
+
+db.createCollection("users", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["email", "password", "role"],
+      properties: {
+        name: {
+          bsonType: "string",
+        },
+        last_name: {
+          bsonType: "string",
+        },
+        email: {
+          bsonType: "string",
+        },
+        password: {
+          bsonType: "string",
+        },
+        age: {
+          bsonType: "number",
+          minimum: 18, // valor minimo
+          maximum: 90, // valor maximo
+        },
+        isSingle: {
+          bsonType: "bool",
+        },
+        role: {
+          enum: ["customer", "seller", "admin"], //solo se puede poner estas tres opciones
+        },
+      },
+    },
+  },
+});

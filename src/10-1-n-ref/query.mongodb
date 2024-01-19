@@ -1,0 +1,31 @@
+use("peloski_store");
+
+db.orders.find({ user_id: ObjectId("6595f561520465d51ea68e60") }).count();
+db.orders.find({ user_id: ObjectId("6595f4fe5e58e27158c15ec7") }).count();
+
+// db.orders.aggregate([
+//   {
+//     $match: {
+//       _id: ObjectId("6595fc8f18e86fc88a4db73d"),
+//     },
+//   },
+//   {
+//     $lookup: {
+//       from: "users",
+//       localField: "user_id",
+//       foreignField: "_id",
+//       as: "user",
+//     },
+//   },
+// ]);
+
+db.users.aggregate([
+  {
+    $lookup: {
+      from: "orders",
+      localField: "_id",
+      foreignField: "user_id",
+      as: "orders",
+    },
+  },
+]);

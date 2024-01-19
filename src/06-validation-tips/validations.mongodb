@@ -1,0 +1,47 @@
+use("peloski_store");
+
+db.getCollectionInfos(); //ver esquemas actuales
+
+db.runCommand({
+  collMod: "users",
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["email", "password", "role"], //cuando addproperties esta en false de forma obligada se debe agregar esta propiedad
+      additionalProperties: true, //obliga a que solo se ingresen los campos establecidos en el esquema
+      properties: {
+        // _id: {
+        //   //cuando addproperties esta en false de forma obligada se debe agregar esta propiedad y validarla
+        //   bsonType: "string",
+        // },
+        name: {
+          bsonType: "string",
+        },
+        last_name: {
+          bsonType: "string",
+        },
+        email: {
+          bsonType: "string",
+        },
+        password: {
+          bsonType: "string",
+          pattern: "^[A-Za-z0-9]{8,}$",
+          //^ inicio     $ fin
+          //{8,100} la contraseña debe tener desde 8 caracteres hasta 100
+          //{8,} la contraseña puede tener desde 8 caracteres hasta el infinito
+        },
+        age: {
+          bsonType: "number",
+          minimum: 18, // valor minimo
+          maximum: 90, // valor maximo
+        },
+        isSingle: {
+          bsonType: "bool",
+        },
+        role: {
+          enum: ["customer", "seller", "admin"], //solo se puede poner estas tres opciones
+        },
+      },
+    },
+  },
+});

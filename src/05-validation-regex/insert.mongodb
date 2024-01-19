@@ -1,0 +1,7 @@
+use("peloski_store");
+
+db.users.insertOne({
+  email: "adritris@gmail.com",
+  password: "123456Pelosos",
+  role: "admin",
+});

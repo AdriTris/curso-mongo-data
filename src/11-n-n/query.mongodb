@@ -1,0 +1,15 @@
+use("peloski_store");
+
+db.products.find();
+db.stores.find();
+
+db.stores.aggregate([
+  {
+    $lookup: {
+      from: "products",
+      localField: "products_ids", //si sabe que products_ids es un vector lo puede mapear
+      foreignField: "_id",
+      as: "products",
+    },
+  },
+]);

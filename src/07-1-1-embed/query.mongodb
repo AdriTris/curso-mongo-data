@@ -1,0 +1,5 @@
+use("peloski_store");
+
+db.users.find({
+  "address.city": "rbb",
+});

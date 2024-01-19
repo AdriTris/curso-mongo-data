@@ -1,0 +1,16 @@
+use("peloski_store");
+// relacion 1-1 referenciada
+db.stores.insertOne({
+  storeId: "ST001",
+  name: "Toy Store",
+  address: "cr 6548",
+});
+
+db.stores_details.insertOne({
+  storeId: "ST001",
+  description: "bla bla bla :D",
+  manager: {
+    email: "adritris@gmail.com",
+    cellphone: "0987654321",
+  },
+});

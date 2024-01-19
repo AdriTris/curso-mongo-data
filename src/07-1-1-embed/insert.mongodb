@@ -1,0 +1,18 @@
+use("peloski_store");
+// relacion 1-1 el 90% de las veces va embebido
+db.users.insertOne({
+  email: "henrycv@gmail.com",
+  password: "1608Pelosos",
+  role: "customer",
+  social_accounts: ["twitter", "facebook"],
+  address: {
+    street: "cr 158",
+    city: "uio",
+    zip: "17026",
+  },
+  shipping_address: {
+    street: "cr 5648",
+    city: "uio",
+    zip: "17032",
+  },
+});
